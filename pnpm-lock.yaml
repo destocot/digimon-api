@@ -11,6 +11,12 @@ importers:
       next:
         specifier: 15.3.1
         version: 15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      prettier:
+        specifier: ^3.5.3
+        version: 3.5.3
+      valibot:
+        specifier: ^1.0.0
+        version: 1.0.0(typescript@5.8.3)
     devDependencies:
       '@types/node':
         specifier: ^20
@@ -267,6 +273,11 @@ packages:
     resolution: {integrity: sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==}
     engines: {node: ^10 || ^12 || >=14}
 
+  prettier@3.5.3:
+    resolution: {integrity: sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==}
+    engines: {node: '>=14'}
+    hasBin: true
+
   react-dom@19.1.0:
     resolution: {integrity: sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g==}
     peerDependencies:
@@ -322,6 +333,14 @@ packages:
 
   undici-types@6.19.8:
     resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
+
+  valibot@1.0.0:
+    resolution: {integrity: sha512-1Hc0ihzWxBar6NGeZv7fPLY0QuxFMyxwYR2sF1Blu7Wq7EnremwY2W02tit2ij2VJT8HcSkHAQqmFfl77f73Yw==}
+    peerDependencies:
+      typescript: '>=5'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
 snapshots:
 
@@ -519,6 +538,8 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
+  prettier@3.5.3: {}
+
   react-dom@19.1.0(react@19.1.0):
     dependencies:
       react: 19.1.0
@@ -578,3 +599,7 @@ snapshots:
   typescript@5.8.3: {}
 
   undici-types@6.19.8: {}
+
+  valibot@1.0.0(typescript@5.8.3):
+    optionalDependencies:
+      typescript: 5.8.3
