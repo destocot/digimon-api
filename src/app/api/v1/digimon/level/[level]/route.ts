@@ -1,27 +1,24 @@
 import digimon from '@/data/digimon.json'
-import { SearchParamsSchema } from '@/lib/validators'
+import { LevelParamsSchema, LevelSearchParamsSchema } from '@/lib/validators'
 import { NextRequest, NextResponse } from 'next/server'
 import { flatten, safeParse } from 'valibot'
 
-const LEVEL_ORDER = ['Fresh', 'In Training', 'Rookie', 'Armor', 'Champion', 'Ultimate', 'Mega']
-
 /**
  * @swagger
- * /api/v1/digimon:
+ * /api/v1/digimon/level/{level}:
  *   get:
- *     summary: Get a list of Digimon
+ *     summary: Get a list of Digimon by level
  *     description: Retrieve a list of Digimon with optional filtering, sorting, and pagination.
  *     tags:
  *      - Digimon
  *     parameters:
- *       - name: sort
- *         in: query
- *         description: Sort by field
- *         required: false
+ *       - name: level
+ *         in: path
+ *         description: The level of the Digimon
+ *         required: true
  *         schema:
  *           type: string
- *           enum: [name, level]
- *           default: name
+ *           enum: [fresh, in-training, rookie, armor, champion, ultimate, mega]
  *       - name: sort_order
  *         in: query
  *         description: Sort order
@@ -39,11 +36,10 @@ const LEVEL_ORDER = ['Fresh', 'In Training', 'Rookie', 'Armor', 'Champion', 'Ult
  *           default: 1
  *       - name: per_page
  *         in: query
- *         description: Number of items per page (default is 209, which returns all items)
+ *         description: Number of items per page (default returns all items)
  *         required: false
  *         schema:
  *           type: integer
- *           default: 209
  *       - name: query
  *         in: query
  *         description: Search query
@@ -118,44 +114,47 @@ const LEVEL_ORDER = ['Fresh', 'In Training', 'Rookie', 'Armor', 'Champion', 'Ult
  *                       items:
  *                         type: string
  */
-export async function GET(req: NextRequest) {
+export async function GET(req: NextRequest, { params }: { params: Promise<{ level: string }> }) {
+  const parsedParams = safeParse(LevelParamsSchema, await params)
   const searchParams = req.nextUrl.searchParams
+  const parsedSearchParams = safeParse(LevelSearchParamsSchema, Object.fromEntries(searchParams))
 
-  const parsedSearchParams = safeParse(
-    SearchParamsSchema(digimon.length.toString()),
-    Object.fromEntries(searchParams),
-  )
-
-  if (!parsedSearchParams.success) {
+  if (!parsedParams.success) {
     return NextResponse.json(
       {
-        error: flatten<ReturnType<typeof SearchParamsSchema>>(parsedSearchParams.issues).nested,
+        error: flatten<typeof LevelParamsSchema>(parsedParams.issues).nested,
       },
       { status: 400 },
     )
   }
 
-  const { sort, sort_order, page, per_page, query } = parsedSearchParams.output
+  if (!parsedSearchParams.success) {
+    return NextResponse.json(
+      {
+        error: flatten<typeof LevelSearchParamsSchema>(parsedSearchParams.issues).nested,
+      },
+      { status: 400 },
+    )
+  }
 
-  const filterd = query
-    ? digimon.filter((d) => d.name.toLowerCase().includes(query.toLowerCase()))
-    : digimon
+  const { level } = parsedParams.output
+  const { sort_order, page, query } = parsedSearchParams.output
 
-  const sorted = [...filterd].sort((a, b) => {
-    let compare = 0
+  let filtered = digimon.filter((d) => d.level.toLowerCase() === level.toLowerCase())
 
-    if (sort === 'name') {
-      compare = a.name.localeCompare(b.name)
-    } else if (sort === 'level') {
-      compare = LEVEL_ORDER.indexOf(a.level) - LEVEL_ORDER.indexOf(b.level)
-    }
+  const items = filtered.length
+  const per_page = parsedSearchParams.output.per_page || items
 
+  filtered = query
+    ? filtered.filter((d) => d.name.toLowerCase().includes(query.toLowerCase()))
+    : filtered
+
+  const sorted = filtered.sort((a, b) => {
+    const compare = a.name.localeCompare(b.name)
     return sort_order === 'asc' ? compare : -compare
   })
 
   const pages = Math.ceil(sorted.length / per_page)
-  const items = sorted.length
-
   const results = sorted.slice((page - 1) * per_page, page * per_page)
 
   const prevPage = page > 1 ? page - 1 : null
