@@ -12,8 +12,8 @@ importers:
         specifier: 15.3.1
         version: 15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-swagger-doc:
-        specifier: ^0.4.1
-        version: 0.4.1(next@15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(openapi-types@12.1.3)
+        specifier: 0.4.0
+        version: 0.4.0(next@15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(openapi-types@12.1.3)
       prettier:
         specifier: ^3.5.3
         version: 3.5.3
@@ -355,8 +355,8 @@ packages:
   '@types/react@19.1.2':
     resolution: {integrity: sha512-oxLPMytKchWGbnQM9O7D67uPa9paTNxO7jVoNMXgkkErULBPhPARCfkKL9ytcIJJRGjbsVwW4ugJzyFFvm/Tiw==}
 
-  '@types/swagger-jsdoc@6.0.4':
-    resolution: {integrity: sha512-W+Xw5epcOZrF/AooUM/PccNMSAFOKWZA5dasNyMujTwsBkU74njSJBpvCCJhHAJ95XRMzQrrW844Btu0uoetwQ==}
+  '@types/swagger-jsdoc@6.0.1':
+    resolution: {integrity: sha512-+MUpcbyxD528dECUBCEVm6abNuORdbuGjbrUdHDeAQ+rkPuo2a+L4N02WJHF3bonSSE6SJ3dUJwF2V6+cHnf0w==}
 
   '@types/swagger-ui-react@5.18.0':
     resolution: {integrity: sha512-c2M9adVG7t28t1pq19K9Jt20VLQf0P/fwJwnfcmsVVsdkwCWhRmbKDu+tIs0/NGwJ/7GY8lBx+iKZxuDI5gDbw==}
@@ -697,9 +697,9 @@ packages:
     resolution: {integrity: sha512-Z4SmBUweYa09+o6pG+eASabEpP6QkQ70yHj351pQoEXIs8uHbaU2DWVmzBANKgflPa47A50PtB2+NgRpQvr7vA==}
     engines: {node: '>= 10'}
 
-  next-swagger-doc@0.4.1:
-    resolution: {integrity: sha512-pFmFUOwNlJh7mr9P6b2obAHa9JAwgPK3oNTIzE9g/Gs+h2OG1T3C5SanzrqGA3dDncagyf/DbO5U+ZzNxKadWg==}
-    engines: {node: '>=18'}
+  next-swagger-doc@0.4.0:
+    resolution: {integrity: sha512-5Wt19Av4tOHVdXPJ7xTVvDJuiWuP5OYnY13BSq5SIjMtktFfhX4/9yZyaMCXImbUECu26PALn9CpRQRplIXJ3w==}
+    engines: {node: '>=12'}
     hasBin: true
     peerDependencies:
       next: '>=9'
@@ -1619,7 +1619,7 @@ snapshots:
     dependencies:
       csstype: 3.1.3
 
-  '@types/swagger-jsdoc@6.0.4': {}
+  '@types/swagger-jsdoc@6.0.1': {}
 
   '@types/swagger-ui-react@5.18.0':
     dependencies:
@@ -1936,9 +1936,9 @@ snapshots:
 
   neotraverse@0.6.18: {}
 
-  next-swagger-doc@0.4.1(next@15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(openapi-types@12.1.3):
+  next-swagger-doc@0.4.0(next@15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(openapi-types@12.1.3):
     dependencies:
-      '@types/swagger-jsdoc': 6.0.4
+      '@types/swagger-jsdoc': 6.0.1
       cleye: 1.3.2
       isarray: 2.0.5
       next: 15.3.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
