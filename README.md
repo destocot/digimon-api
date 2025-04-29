@@ -29,6 +29,12 @@ git clone https://github.com/destocot/digimon-api.git
 cd digimon-api
 ```
 
+## Documentation
+
+### https://digimon-api-v1.vercel.app/docs
+
+![2025_04_29_11_04_28_digimon_api_v1 vercel app_docs](https://github.com/user-attachments/assets/1edf4b47-4642-4a18-8e4a-4aa286192ad1)
+
 ## API Endpoints
 
 ### GET /api/digimon
@@ -42,6 +48,7 @@ Returns a list of Digimon filtered by level
 ### GET /api/digimon/name/{name}
 
 Returns a specific Digimon by name
+
 
 ## Technologies Used
 
