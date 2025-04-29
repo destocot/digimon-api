@@ -49,6 +49,31 @@ Returns a list of Digimon filtered by level
 
 Returns a specific Digimon by name
 
+# Digimon API: Search Parameters Guide
+
+## Query Parameters for `/api/digimon` Endpoint
+
+### Search
+
+- `query=agumon` - Find all Digimon containing "agumon" in their name
+
+### Pagination
+
+- `page=2` - Display the second page of results
+- `per_page=20` - Show 20 Digimon per page (default is all)
+
+### Sorting
+
+- `sort=name|level` - Sort by name or level
+- `sort_order=asc|desc` - Sort in ascending or descending order
+
+### Example Combined Query
+
+/api/digimon?sort=level&sort_order=desc&query=mon&page=1&per_page=10
+
+This returns the first 10 Digimon with "mon" in their name, sorted by level from highest to lowest.
+
+All parameters are validated with helpful error responses for invalid inputs.
 
 ## Technologies Used
 
