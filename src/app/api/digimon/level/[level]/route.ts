@@ -5,7 +5,7 @@ import { flatten, safeParse } from 'valibot'
 
 /**
  * @swagger
- * /api/v1/digimon/level/{level}:
+ * /api/digimon/level/{level}:
  *   get:
  *     summary: Get a list of Digimon by level
  *     description: Retrieve a list of Digimon with optional filtering, sorting, and pagination.

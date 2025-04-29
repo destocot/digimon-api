@@ -1,40 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/create-next-app).
+# Digimon API
+
+A RESTful API for Digimon data built with Next.js.
+
+## Overview
+
+This project provides a modern, well-documented API for accessing Digimon information. It leverages Next.js App Router for API routes and includes Swagger UI documentation.
+
+## Features
+
+- **RESTful API endpoints** for accessing Digimon data
+- **Interactive API documentation** using Swagger UI
+- **Modern architecture** using Next.js App Router
+- **Clean code structure** for easy maintenance and extension
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18 or later
+- pnpm (recommended) or npm
+
+### Installation
+
+1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/destocot/digimon-api.git
+cd digimon-api
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## API Endpoints
 
-You can start editing the page by modifying `app/route.ts`. The page auto-updates as you edit the file.
+### GET /api/digimon
 
-## Learn More
+Returns a list of all Digimon
 
-To learn more about Next.js, take a look at the following resources:
+### GET /api/digimon/level/{level}
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Returns a list of Digimon filtered by level
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### GET /api/digimon/name/{name}
 
-## Deploy on Vercel
+Returns a specific Digimon by name
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Technologies Used
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Next.js
+- TypeScript
+- Valibot
 
-## API Routes
+## Contributing
 
-This directory contains example API routes for the headless API app.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-For more details, see [route.js file convention](https://nextjs.org/docs/app/api-reference/file-conventions/route).
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

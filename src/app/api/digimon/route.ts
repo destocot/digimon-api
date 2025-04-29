@@ -7,7 +7,7 @@ const LEVEL_ORDER = ['Fresh', 'In Training', 'Rookie', 'Armor', 'Champion', 'Ult
 
 /**
  * @swagger
- * /api/v1/digimon:
+ * /api/digimon:
  *   get:
  *     summary: Get a list of Digimon
  *     description: Retrieve a list of Digimon with optional filtering, sorting, and pagination.

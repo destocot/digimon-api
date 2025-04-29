@@ -5,7 +5,7 @@ import { safeParse, flatten } from 'valibot'
 
 /**
  * @swagger
- * /api/v1/digimon/name/{name}:
+ * /api/digimon/name/{name}:
  *   get:
  *     summary: Get a specific Digimon by name
  *     description: Retrieve details of a Digimon based on its name.
