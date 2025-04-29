@@ -69,7 +69,7 @@ Returns a specific Digimon by name
 
 ### Example Combined Query
 
-/api/digimon?sort=level&sort_order=desc&query=mon&page=1&per_page=10
+`/api/digimon?sort=level&sort_order=desc&query=mon&page=1&per_page=10`
 
 This returns the first 10 Digimon with "mon" in their name, sorted by level from highest to lowest.
 
